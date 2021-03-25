@@ -1,0 +1,85 @@
+﻿<Window x:Class="N4_CLICKER.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:N4_CLICKER"
+        mc:Ignorable="d"
+        Title="Кликер" Height="415" Width="387" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="33*"/>
+            <ColumnDefinition Width="163*"/>
+        </Grid.ColumnDefinitions>
+        <TabControl HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="392" Grid.ColumnSpan="2">
+            <TabItem Header="Биток" Height="22" VerticalAlignment="Bottom">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="371*"/>
+                        <ColumnDefinition Width="15*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image HorizontalAlignment="Left" Height="451" VerticalAlignment="Top" Width="757" Source="img/krafon.jpg" Margin="-89,-30,-282,-32" Grid.ColumnSpan="2"/>
+                    <Image x:Name="cherepax" HorizontalAlignment="Left" Height="183" Margin="95,148,0,0" VerticalAlignment="Top" Width="213" Source="img/bitok2.png" MouseDown="Image_MouseDown" RenderTransformOrigin="0.5,0.5">
+                        <Image.RenderTransform>
+                            <RotateTransform x:Name="AnimatedRotateTransform" Angle="0" />
+                        </Image.RenderTransform>
+                        <Image.Triggers>
+                            <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+                                <EventTrigger.Actions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="AnimatedRotateTransform"
+                                 Storyboard.TargetProperty="Angle" 
+                                To="360" Duration="0:0:6" RepeatBehavior="Forever" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger.Actions>
+                            </EventTrigger>
+                        </Image.Triggers>
+                    </Image>
+                    <Label x:Name="pnt" Content="Биткоин:" HorizontalAlignment="Left" Margin="44,40,0,0" VerticalAlignment="Top" Background="#FFFDFDFD"/>
+                    <Label x:Name="pntOnClick" Content="Майнинг фермы:" HorizontalAlignment="Left" Margin="44,81,0,0" VerticalAlignment="Top" Background="White"/>
+                    <Image HorizontalAlignment="Left" Height="421" VerticalAlignment="Top" Width="386" Grid.ColumnSpan="2" Margin="0,-30,0,-2"/>
+                    <Button x:Name="X2" Content="X2" HorizontalAlignment="Left" Margin="10,345,0,0" VerticalAlignment="Top" Width="42" Height="34" Click="X2_Click"/>
+                    <Button x:Name="X5" Content="X5" HorizontalAlignment="Left" Margin="70,345,0,0" VerticalAlignment="Top" Width="42" Height="34" Click="X5_Click"/>
+                    <Button x:Name="X100" Content="X100" HorizontalAlignment="Left" Margin="134,345,0,0" VerticalAlignment="Top" Width="42" Height="34" Click="X100_Click"/>
+                    <Button x:Name="B1" Content="+0.01" HorizontalAlignment="Left" Margin="214,345,0,0" VerticalAlignment="Top" Width="42" Height="34" Click="B1_Click"/>
+                    <Button x:Name="B2" Content="+1" HorizontalAlignment="Left" Margin="275,345,0,0" VerticalAlignment="Top" Width="42" Height="34" Click="B2_Click"/>
+                    <Button x:Name="B3" Content="+100" HorizontalAlignment="Left" Margin="334,345,0,0" VerticalAlignment="Top" Width="42" Height="34" Click="B3_Click" Grid.ColumnSpan="2"/>
+                    <Button x:Name="RESET" Content="Сброс" HorizontalAlignment="Left" Margin="308,311,0,0" VerticalAlignment="Top" Width="75" Click="RESET_Click" Grid.ColumnSpan="2"/>
+                    <Button x:Name="EXIT" Content="Выход" HorizontalAlignment="Left" Margin="322,0,0,0" VerticalAlignment="Top" Width="49" Height="35" Click="EXIT_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Магазин">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="23*"/>
+                        <ColumnDefinition Width="363*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image x:Name="IMG5" HorizontalAlignment="Left" Height="454" Margin="-165,-28,-110,-37" VerticalAlignment="Top" Width="661" Grid.ColumnSpan="2" Source="img/1.jpg" Visibility="Hidden"/>
+                    <Button x:Name="SHOP1" Content="Черепаха" Grid.Column="1" HorizontalAlignment="Left" Margin="10,19,0,0" VerticalAlignment="Top" Width="109" Height="85" FontSize="20" Click="SHOP1_Click"/>
+                    <Image x:Name="IMG22" Grid.Column="1" HorizontalAlignment="Left" Height="190" Margin="141,25,0,0" VerticalAlignment="Top" Width="207" Source="img/CAR.jpg" RenderTransformOrigin="0.5,0.5" Visibility="Hidden">
+                        <Image.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="-121.502"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Image.RenderTransform>
+                    </Image>
+                    <Button x:Name="SHOP2" Content="Машина" Grid.Column="1" HorizontalAlignment="Left" Margin="218,19,0,0" VerticalAlignment="Top" Width="109" Height="85" FontSize="20" Click="SHOP2_Click"/>
+                    <Image x:Name="IMG33" HorizontalAlignment="Left" Height="291" Margin="-76,222,0,-124" VerticalAlignment="Top" Width="312" Source="img/MNOGOETAJKA.jpg" Grid.ColumnSpan="2" Visibility="Hidden"/>
+                    <Button x:Name="SHOP3" Content="Квартира" Grid.Column="1" HorizontalAlignment="Left" Margin="10,222,0,0" VerticalAlignment="Top" Width="109" Height="85" FontSize="20" Click="SHOP3_Click"/>
+                    <Button x:Name="SHOP4" Content="Чебурек" Grid.Column="1" HorizontalAlignment="Left" Margin="218,222,0,0" VerticalAlignment="Top" Width="109" Height="85" FontSize="20" Click="SHOP4_Click"/>
+                    <Label x:Name="SHOPLB1" Content="Цена: 1 БТ" Grid.Column="1" HorizontalAlignment="Left" Margin="19,109,0,0" VerticalAlignment="Top" FontSize="16" Width="91"/>
+                    <Label x:Name="SHOPLB2" Content="Цена: 10 БТ" Grid.Column="1" HorizontalAlignment="Left" Margin="232,109,0,0" VerticalAlignment="Top" FontSize="16"/>
+                    <Label x:Name="SHOPLB3" Content="Цена: 100 БТ" Grid.Column="1" HorizontalAlignment="Left" Margin="16,312,0,0" VerticalAlignment="Top" FontSize="16"/>
+                    <Label x:Name="SHOPLB4" Content="Цена: 10000 БТ" Grid.Column="1" HorizontalAlignment="Left" Margin="218,312,0,0" VerticalAlignment="Top" FontSize="16"/>
+                    <Image x:Name="IMG44" Grid.Column="1" HorizontalAlignment="Left" Height="231" Margin="63,112,0,0" VerticalAlignment="Top" Width="217" Source="img/CHEB.jpg" Visibility="Hidden"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>
